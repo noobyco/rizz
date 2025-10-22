@@ -162,8 +162,9 @@ const apiRoutes = {
 };
 
 // Start the server
+const port = Number(Bun.env.PORT || 3000);
 Bun.serve({
-  port: 3001,
+  port,
   fetch: async (req: Request) => {
     const url = new URL(req.url);
     const path = url.pathname;
@@ -228,4 +229,4 @@ Bun.serve({
   }
 });
 
-console.log("🚀 Note-taking app running on http://localhost:3001");
+console.log(`🚀 Note-taking app running on http://localhost:${port}`);

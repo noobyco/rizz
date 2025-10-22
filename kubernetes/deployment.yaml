@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rizz
+  labels:
+    app: rizz
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rizz
+  template:
+    metadata:
+      labels:
+        app: rizz
+    spec:
+      containers:
+      - name: rizz
+        image: noobyco/rizz:0.0.1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 200m
+            memory: 256Mi
+          limits:
+            memory: 512Mi
